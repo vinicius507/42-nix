@@ -4,6 +4,10 @@
 
 Development enviroment for École 42 Common Core projects using Nix Flakes.
 
+> **Warning**
+>
+> This flake is a WIP. Expect breaking changes.
+
 ## 🎯 Goal
 
 The goal of this project is to provide a reproducible environment for École 42 Projects using Nix flakes.
