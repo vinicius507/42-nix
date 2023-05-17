@@ -34,15 +34,16 @@
             (python3.withPackages python-pkgs)
           ];
           shellHook = ''
-            echo "Welcome to 42 development environment!"
             cat << EOF
+            Welcome to the École 42 development environment!
+
                     :::      ::::::::
                   :+:      :+:    :+:
                 +:+ +:+         +:+
               +#+  +:+       +#+
             +#+#+#+#+#+   +#+
                 #+#    #+#
-                ###   ########.fr
+                ###   ########
             EOF
           '';
         };
