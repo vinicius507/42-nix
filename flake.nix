@@ -10,10 +10,9 @@
     nixpkgs,
   }: let
     system = "x86_64-linux";
-    overlays = import ./overlays;
     pkgs = import nixpkgs {
       inherit system;
-      overlays = [overlays.norminette];
+      overlays = builtins.attrValues self.overlays;
     };
   in {
     apps.${system}.norminette = {
@@ -21,14 +20,15 @@
       program = "${pkgs.norminette}/bin/norminette";
     };
     packages.${system}.norminette = pkgs.norminette;
+    overlays = import ./overlays;
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
         bear
         clang-tools_12
         gnumake
         llvmPackages_12.libcxxClang
-        valgrind
         norminette
+        valgrind
       ];
       shellHook = ''
         cat << EOF
