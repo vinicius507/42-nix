@@ -21,28 +21,16 @@
     };
     packages.${system}.norminette = pkgs.norminette;
     overlays = import ./overlays;
-    devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [
-        bear
-        clang-tools_12
-        gnumake
-        llvmPackages_12.libcxxClang
-        norminette
-        valgrind
-      ];
-      shellHook = ''
-        cat << EOF
-        Welcome to the École 42 development environment!
-
-                :::      ::::::::
-              :+:      :+:    :+:
-            +:+ +:+         +:+
-          +#+  +:+       +#+
-        +#+#+#+#+#+   +#+
-            #+#    #+#
-            ###   ########
-        EOF
-      '';
+    templates = rec {
+      default = standard;
+      minimal = {
+        path = ./templates/minimal;
+        description = "A 42 School project";
+      };
+      standard = {
+        path = ./templates/standard;
+        description = "A 42 School project";
+      };
     };
   };
 }
