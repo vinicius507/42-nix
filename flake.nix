@@ -1,5 +1,5 @@
 {
-  description = "École 42 development enviroment";
+  description = "The 42 School Flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs";
