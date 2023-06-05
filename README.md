@@ -2,7 +2,7 @@
 
 ![GIF demonstrating the nix develop command being executed](./assets/demo.gif)
 
-This project provides a development environment for École 42 Common Core projects using Nix Flakes. It aims to offer a reproducible environment and includes packages and overlays for usage in other flakes.
+This project provides development environments for 42 School Common Core projects using Nix Flakes. It provides Nix Flakes templates to create development enviroments for your projects, while providing packages and overlays for usage in other flakes.
 
 > **Warning**
 >
@@ -17,7 +17,7 @@ This flake includes nix flake templates for the 42 School projects.
 There are 2 templates:
 
 - `minimal`: Provides GNU Make, Clang 12, LibCXX and norminette.
-- `standard`(default): Provides all tools from the `minimal` template, alongside some extra tools, such as: bear, Clang 12 tools and valgrind.
+- `standard` (default): Provides all tools from the `minimal` template, alongside some extra tools, such as: bear, Clang 12 tools and valgrind.
 
 #### Usage
 
@@ -102,6 +102,7 @@ You can also use the packages overlays to add them to your configuration:
       myriad = nixpkgs.lib.nixosSystem {
         modules = [
           { environment.systemPackages = [ pkgs.norminette ]; }
+          # [...]
         ];
       };
     };
