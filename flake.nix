@@ -2,8 +2,8 @@
   description = "École 42 development enviroment";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
     flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, flake-utils }:
