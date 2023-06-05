@@ -29,6 +29,19 @@
         norminette
         valgrind
       ];
+      shellHook = ''
+        cat << EOF
+        Welcome to the École 42 development environment!
+
+                :::      ::::::::
+              :+:      :+:    :+:
+            +:+ +:+         +:+
+          +#+  +:+       +#+
+        +#+#+#+#+#+   +#+
+            #+#    #+#
+            ###   ########.fr
+        EOF
+      '';
     };
   };
 }
