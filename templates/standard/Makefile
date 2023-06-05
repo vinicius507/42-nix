@@ -1,4 +1,4 @@
-NAME = 
+NAME = a.out
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -8,18 +8,18 @@ RM = rm -f
 SRCDIR = ./src
 OBJDIR = ./build
 
-SRCS := 
+SRCS := main.c
 OBJS := $(addprefix $(OBJDIR)/,$(SRCS:%.c=%.o))
 SRCS := $(addprefix $(SRCDIR)/,$(SRCS))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
+	$(CC) $(CFLAGS) $^ -o $@
 
-$(OBJDIR)/%.o: %.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) $(INCLUDES) $< -c -o $@
+	$(CC) $(CFLAGS) $< -c -o $@
 
 clean:
 	$(RM) -r $(OBJDIR)
