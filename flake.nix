@@ -16,6 +16,11 @@
       overlays = [overlays.norminette];
     };
   in {
+    apps.${system}.norminette = {
+      type = "app";
+      program = "${pkgs.norminette}/bin/norminette";
+    };
+    packages.${system}.norminette = pkgs.norminette;
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
         bear
