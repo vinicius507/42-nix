@@ -2,7 +2,7 @@
 
 ![GIF demonstrating the nix develop command being executed](./assets/demo.gif)
 
-This project provides development environments for 42 School Common Core projects using Nix Flakes. It provides Nix Flakes templates to create development enviroments for your projects, while providing packages and overlays for usage in other flakes.
+This project provides development environments for 42 School Common Core projects using Nix Flakes. It provides Nix Flakes templates to create development environments for your projects, while providing packages and overlays for usage in other flakes.
 
 > **Warning**
 >
