@@ -2,7 +2,7 @@
   description = "The 42 School Flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs";
+    nixpkgs.url = "github:NixOs/nixpkgs/release-23.05";
   };
 
   outputs = {
