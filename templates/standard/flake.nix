@@ -17,11 +17,10 @@
       inherit system;
       overlays = [
         ft-nix.overlays.norminette
-        ft-nix.overlays.stdenv
       ];
     };
   in {
-    devShells.${system}.default = pkgs.mkShell {
+    devShells.${system}.default = ft-nix.lib.mkShell {
       packages = with pkgs; [
         bear
         clang-tools_12

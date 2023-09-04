@@ -36,9 +36,13 @@
       norminette = final: _: {
         norminette = self.packages.${final.system}.norminette;
       };
-      stdenv = final: _: {
-        stdenv = final.llvmPackages_12.stdenv;
-      };
+    };
+    lib = {
+      mkShell = args:
+        (pkgs.mkShell.override {
+          inherit (pkgs.llvmPackages_12) stdenv;
+        })
+        args;
     };
     templates = rec {
       default = standard;
