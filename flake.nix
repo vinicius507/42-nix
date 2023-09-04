@@ -20,11 +20,19 @@
       program = "${pkgs.norminette}/bin/norminette";
     };
     packages.${system} = {
+      minilibx = import ./pkgs/minilibx.nix {
+        inherit (pkgs) lib fetchFromGitHub;
+        inherit (pkgs.xorg) libX11 libXext;
+        inherit (pkgs.llvmPackages_12) stdenv;
+      };
       norminette = import ./pkgs/norminette.nix {
         inherit (pkgs.python3Packages) buildPythonPackage fetchPypi;
       };
     };
     overlays = {
+      minilibx = final: _: {
+        minilibx = self.packages.${final.system}.minilibx;
+      };
       norminette = final: _: {
         norminette = self.packages.${final.system}.norminette;
       };
