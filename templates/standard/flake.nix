@@ -17,6 +17,7 @@
       inherit system;
       overlays = [
         ft-nix.overlays.norminette
+        ft-nix.overlays.stdenv
       ];
     };
   in {

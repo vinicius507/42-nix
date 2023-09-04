@@ -36,6 +36,9 @@
       norminette = final: _: {
         norminette = self.packages.${final.system}.norminette;
       };
+      stdenv = final: _: {
+        stdenv = final.llvmPackages_12.stdenv;
+      };
     };
     templates = rec {
       default = standard;
