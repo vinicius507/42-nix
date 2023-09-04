@@ -19,8 +19,16 @@
       type = "app";
       program = "${pkgs.norminette}/bin/norminette";
     };
-    packages.${system}.norminette = pkgs.norminette;
-    overlays = import ./overlays;
+    packages.${system} = {
+      norminette = import ./pkgs/norminette.nix {
+        inherit (pkgs.python3Packages) buildPythonPackage fetchPypi;
+      };
+    };
+    overlays = {
+      norminette = final: _: {
+        norminette = self.packages.${final.system}.norminette;
+      };
+    };
     templates = rec {
       default = standard;
       minimal = {
